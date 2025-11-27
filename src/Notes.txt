@@ -1,0 +1,29 @@
+* Angular is framework based on javaScript and Typescript
+* Framework- collection of library at single point
+* library - collection of class & codes at single point to achieve specific task like bs,chart.js,jQuary,primeng
+* It uses Typescript becoz javaScript is not fully supported to OOP's like java
+* Features of Angular:-
+    ~ It is used to create dynamic web application
+    ~ clean and Loosely coupled
+    ~ open Source
+    ~ Separate HTML,CSS & TS files.
+    ~ Code reusability.
+    ~ Easy to understand and maintain
+    ~ used for web as well as mobile
+    ~ Component based structure
+    ~ Support Routing
+    ~ Support progressive web application (PWA)
+    ~ Cross Platform
+* Angular CLI (command line interface)
+    - This is used to create,modify,maintain and run angular project
+    - used to create basic building block of project.
+* Installation
+    1) Download & Install node.js if already installed check version node -v
+
+    2) Install Angular cli : npm install -g @angular/cli
+    3) check installed properly : ng version 
+
+    4) Create new project/application : ng new projectName
+    5) To start/run the project go inside created project and : ng serve/ npm start
+    6) Open your favorite browser and open the url: http://localhost:4200
+ _________________________________________________________________________
