@@ -1,0 +1,15 @@
+<!-- Interpolation -->
+ <h1>{{country}}</h1>
+
+ <!-- Arribute binding -->
+  <button [disabled]="isDiseabled">I am button</button>
+
+  <!-- Event binding -->
+   <button type="submit"(click)="onSubmit($event)">Submit</button>
+
+   <!-- Two way data binding -->
+
+   <form #loginForm="ngForm" (ngSubmit)="saveData(loginForm)">
+        <input type="email" name="email" id="" [(ngModel)]="user.email" ngModel>
+        <button>formData</button>
+   </form>

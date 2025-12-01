@@ -27,3 +27,127 @@
     5) To start/run the project go inside created project and : ng serve/ npm start
     6) Open your favorite browser and open the url: http://localhost:4200
  _________________________________________________________________________
+ Day-2
+*version 12.2.3 (major release, minor release, patch release)
+*angular folder structure: 
+	1) src:
+		~This is the root folder of your Angular application.
+		~It contains all the source code for your application.
+		
+	2) app:
+		~This folder contains the main application module, components, services, directives, and other Angular-related files.
+		~Components and services are typically organized into their own subfolders within the app folder.
+		
+	3) assets:
+		~This folder contains static assets such as images, fonts, or other files that are copied to the output directory during the build process.
+		~Any file placed in this folder will be served by the Angular CLI without processing.
+		
+	4) environments:
+		~This folder contains environment-specific configuration files.
+		~By default, it contains two files: environment.ts for development environment and environment.prod.ts for production environment.
+		~These files export environment-specific variables that can be accessed throughout the application.
+		
+	5) styles:
+		~This folder contains global stylesheets for the application.
+		~It typically includes files like styles.css where you can define global CSS styles.
+		
+	6) node module : 
+		~This folder contains all the npm packages and dependencies required by the project.
+		~It is managed by npm and should not be modified manually.
+
+    7) Package.json :
+      ~It also includes metadata about the project, such as name, version, and author.
+      ~This is the npm configuration file.
+      ~It consist all libraries/packages with their version details.
+
+    8) Angular.json :
+      ~ It is an entry point of project
+	  ~ This is the configuration file for the Angular CLI.
+      ~ It also consist basic info about project
+
+	9) main.ts :
+      ~It is second entry point of project
+      ~It consist of bootstrapping process of project : 
+				platformBrowserDynamic().bootstrapModule(AppModule)
+				.catch(err => console.error(err));
+      ~It contain root module 
+      ~It consist of environment of project 
+    
+	10) index.html :
+      ~it contain root selector : <app-root></app-root>
+      ~responsible of SPA 
+	 
+	11) tsconfig.json: :
+		~ This is the TypeScript configuration file.
+		~ It specifies compiler options for TypeScript, such as target version, module resolution, and output directory.
+		  "compilerOptions": {
+		"baseUrl": "./",
+		"outDir": "./dist/out-tsc",
+		"forceConsistentCasingInFileNames": true,
+		"strict": true,
+		"noImplicitOverride": true,
+		"noPropertyAccessFromIndexSignature": true,
+		"noImplicitReturns": true,
+		"noFallthroughCasesInSwitch": true,
+		"sourceMap": true,
+		"declaration": false,
+		"downlevelIteration": true,
+		"experimentalDecorators": true,
+		"moduleResolution": "node",
+		"importHelpers": true,
+		"target": "ES2022",
+		"module": "ES2022",
+		"useDefineForClassFields": false,
+		"lib": [
+      "ES2022",
+      "dom"
+		]
+	},
+	
+	12) package-lock.json : It keep track of exact version of all the dependencies.
+		"dependencies": {
+        "@angular/animations": "^16.2.0",
+        "@angular/common": "^16.2.0",
+        "@angular/compiler": "^16.2.0", }
+	
+	13) polyfills.ts
+		~ The polyfills.ts file is typically provided by Angular CLI when we generate a new Angular project.
+		~ It's crucial for ensuring that our Angular application works across different browsers and environments by providing necessary polyfills for compatibility.
+	
+	14) <router-outlet></router-outlet> : The component associated with the route is then rendered inside the <router-outlet> tag in the parent component's template. 
+    -----------------------------------------
+        Basic building block of Angular:
+    1) module
+    2) component
+    3) Services
+    4) Directives => cust directive, Attribute direct(ngStyle,ngClass), structural directive(ngIf
+    5) Template 
+    6) MetaData/Decorators 
+    7) Dependency Injection
+    8) Data Binding => Interpolation, property binding, eventBinding, two-away dataBinding
+    ------------------------------------------
+       3) Decorators=> 
+   ~ Decorators tells to angular how to process on class
+   ~ most common decorators are @Component, @NgModule    
+   MetaData- MetaData is extra info about decorator
+
+   4) Data Binding=>
+   ~ Data Binding is used to static as well as dynamic data which will be displayed on the browser
+   ~ means to use to communicate comp.ts to comp.html  
+
+   There are four way to data Binding:
+   i) Interpolation 
+   ~ This is one way data binding (comp.ts to comp.html)
+      syntax:{{PropertyName}}
+
+   i
+   i) Property or Attribute Binding
+   ~ This is one way data binding (comp.ts to comp.html)
+   ~ It binds the data with property or attribute of html
+      syntax [attributeName]="PropertyName"
+
+   iii) Event binding (comp.html to comp.ts)
+
+   iv) Two way data Binding   
+   ~ (comp.html to comp.ts) and (comp.ts to comp.html)
+   ~ Import formModule and we used [(ngModel)] to bind the data
