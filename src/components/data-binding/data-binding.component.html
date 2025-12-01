@@ -1,15 +1,47 @@
 <!-- Interpolation -->
- <h1>{{country}}</h1>
+ 
+ <h1>{{country}}</h1> 
 
- <!-- Arribute binding -->
-  <button [disabled]="isDiseabled">I am button</button>
+ <p>{{ a + b }}</p> 
+ <p>{{ a * b }}</p> 
+ <p>{{ a > b }}</p> 
 
-  <!-- Event binding -->
-   <button type="submit"(click)="onSubmit($event)">Submit</button>
+ <p>{{ name.firstName }} {{ name.lastName }}</p> 
 
-   <!-- Two way data binding -->
+ <p>{{ name.isLoggedIn ? 'Welcome User' : 'Please Login' }}</p>
+
+ <h4>{{25+25*2-5/5}}</h4>
+
+ <!-- <h3>{{userName='ramesh'}}</h3>         // can't assign variable and value here -->
+
+
+<!-- Arribute binding -->
+
+  <button [disabled]="isDisabled">I am button</button>
+
+  <p [class.red]="isRed">This text is red</p>
+
+
+<!-- Event binding -->
+
+   <button type="submit"(click)="onSubmit($event)">Submit</button><br><br>
+
+   <form (ngSubmit)="onSubm()">
+   <input type="text" placeholder="Name">
+   <button type="submit">Submit</button>
+   </form><br>
+
+
+<!-- Two way data binding -->
 
    <form #loginForm="ngForm" (ngSubmit)="saveData(loginForm)">
         <input type="email" name="email" id="" [(ngModel)]="user.email" ngModel>
         <button>formData</button>
-   </form>
+   </form><br>
+
+     <input type="text" [(ngModel)]="username" placeholder="Enter your name">
+     <p>Hello, {{ username }}</p>
+
+     <input type="number" [(ngModel)]="age">
+     <p>Your age: {{ age }}</p>
+
