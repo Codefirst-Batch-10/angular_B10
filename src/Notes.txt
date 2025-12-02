@@ -14,7 +14,8 @@
     ~ Support Routing
     ~ Support progressive web application (PWA)
     ~ Cross Platform
-* Angular CLI (command line interface)
+* Angular CL
+I (command line interface)
     - This is used to create,modify,maintain and run angular project
     - used to create basic building block of project.
 * Installation
