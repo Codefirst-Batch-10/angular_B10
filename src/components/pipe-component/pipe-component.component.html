@@ -3,7 +3,7 @@
 <h4>{{price | currency:'INR'}}</h4>
 <h4>{{team | json}}</h4>
 <!-- custome pipe example -->
-<!-- <h4>{{description | truncate:20}}</h4> -->
+<h4>{{description | truncate:20}}</h4>
 
 <div class="container-fluid pt-5">
     <div class="row" style="background-color: rgb(123, 123, 240);">
@@ -77,7 +77,7 @@
                 <tbody>
                     <tr *ngFor="let std of studentArray2; let srno=index">
                         <td>{{srno+1}}</td>
-                        <td>{{std.name |truncate}}</td>
+                        <td>{{std.name |naValue}}</td>
                         <td>{{std.city | lowercase}}</td>
                         <td>{{std.contactNo}}</td>
                     </tr>

@@ -1,10 +1,11 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { NaValuePipe } from '../../pipes/truncate.pipe';
 import { TruncatePipe } from "../../pipes/truncate.pipe";
 
 @Component({
   selector: 'app-pipe-component',
-  imports: [CommonModule, TruncatePipe],
+  imports: [CommonModule, NaValuePipe, TruncatePipe],
   templateUrl: './pipe-component.component.html',
   styleUrl: './pipe-component.component.css'
 })
