@@ -178,3 +178,8 @@ ________________________________________________________________________________
       ~ command to create : ng g d DirectiveName
       ~ with the help of custom directive we can create our own directive
       ~ with the help of custom directive we can write logic onces and implement all over the application.
+
+--------------------------------------------------------------------------------
+Day-4 (Pipes) : pipe i used to tranform the data.
+1) build in Pipes : JSON, date , currency , lowercase , uppercase
+2) custome pipe : ng g p pipe_name
