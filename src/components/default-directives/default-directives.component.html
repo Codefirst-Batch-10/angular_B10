@@ -1,14 +1,14 @@
 @if (isShowTitle) {
-    <h1>Angular session B10</h1>
+<h1>Angular session B10</h1>
 } @else {
-    <h3>Javascript session B10</h3>
+<h3>Javascript session B10</h3>
 }
 <div>
     @for (std of students; track std.id) {
     <!-- <li [ngClass]="{'top-scorer': std.score >= 90}">{{ std.name }} : {{ std.score }}</li> -->
     <!-- <li [ngStyle]="{'color': std.score >= 90 ? 'blue' : 'red'}">>{{ std.name }} : {{ std.score }}</li> -->
-    
+
     <!-- custom directive -->
-    <li appHoverHighlight>{{ std.name }} : {{ std.score }}</li> 
+    <li appHoverHighlight>{{ std.name }} : {{ std.score }}</li>
     }
 </div>

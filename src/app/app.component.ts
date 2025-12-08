@@ -6,7 +6,7 @@ import { PipeComponentComponent } from "../components/pipe-component/pipe-compon
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, DataBindingComponent, DefaultDirectivesComponent, PipeComponentComponent],
+  imports: [RouterOutlet, PipeComponentComponent, DefaultDirectivesComponent, DataBindingComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

@@ -1,6 +1,118 @@
-<h1>{{title | lowercase}}</h1>
-<h1>{{title | uppercase}}</h1>
-<h1>{{price | currency:'INR'}}</h1>
-<h1>{{team | json}}</h1>
+<h4>{{title | lowercase}}</h4>
+<h4>{{title | uppercase}}</h4>
+<h4>{{price | currency:'INR'}}</h4>
+<h4>{{team | json}}</h4>
 <!-- custome pipe example -->
-<h1>{{description | truncate:20}}</h1>
+<!-- <h4>{{description | truncate:20}}</h4> -->
+
+<div class="container-fluid pt-5">
+    <div class="row" style="background-color: rgb(123, 123, 240);">
+
+        <div class="col-3">
+            title => {{ title }} <br>
+            uppercase => {{ title | uppercase }}
+        </div>
+
+        <div class="col-3">
+            currentDate => {{ currentDate }} <br>
+            datePipe => {{ currentDate | date:'dd-MMM-yyyy' }} <br>
+            datePipe => {{ currentDate | date:'dd/MM/yy' }} <br>
+            datePipe => {{ currentDate | date:'hh:mm:ss' }}
+        </div>
+
+        <div class="col-3">
+            object => {{ team }} <br>
+            jsonPipe => {{ team | json }}
+        </div>
+
+        <div class="col-3">
+            array => {{ cityList }} <br>
+            jsonPipe => {{ cityList | json }}
+        </div>
+
+    </div>
+    <div class="row my-5" style="background-color: rgb(236, 126, 126);">
+        <div class="col-6">
+            array => {{studentArray}} <br>
+        </div>
+        <div class="col-6">
+            jsonPipe => {{studentArray | json}}
+        </div>
+    </div>
+
+
+
+    <div class="row my-5">
+        <div class="col-6" style="background-color: rgb(229, 229, 105);">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Sr No</th>
+                        <th>Name</th>
+                        <th>City</th>
+                        <th>Mobile No</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let std of studentArray; let srno=index">
+                        <td>{{srno+1}}</td>
+                        <td>{{std.name}}</td>
+                        <td>{{std.city | uppercase}}</td>
+                        <td>{{std.contactNo}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+        <div class="col-6" style="background-color: rgb(109, 60, 234);">
+            <table class="table table-bordered">
+                <thead>
+                    <tr>
+                        <th>Sr No</th>
+                        <th>Name</th>
+                        <th>City</th>
+                        <th>Mobile No</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let std of studentArray2; let srno=index">
+                        <td>{{srno+1}}</td>
+                        <td>{{std.name |truncate}}</td>
+                        <td>{{std.city | lowercase}}</td>
+                        <td>{{std.contactNo}}</td>
+                    </tr>
+                </tbody>
+            </table>
+
+        </div>
+    </div>
+
+
+    <div class="row my-5" style="background-color: darkorchid;">
+        <div class="col-2">
+            <ul>
+                <li *ngFor="let city of cityList">
+                    {{city}}
+                </li>
+            </ul>
+        </div>
+        <div class="col-5">
+            <button *ngFor="let city of cityList" class="btn btn-success mx-2">
+                {{city}}
+            </button>
+        </div>
+        <div class="col-2">
+            <div *ngFor="let city of cityList">
+                <span>{{city}}</span>
+            </div>
+        </div>
+        <div class="col-3">
+            <select>
+                <option *ngFor="let std of studentArray" [value]="std.sId">
+                    {{std.name}} - {{std.city}}
+                </option>
+            </select>
+        </div>
+    </div>
+
+    </div>
