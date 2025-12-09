@@ -1,1 +1,70 @@
-<p>service works!</p>
+<div class=" container-fluid">
+    <div class="row my-5 mt-5">
+        <div class="col-4"></div>
+        <div class="col-4">
+            <button (click)="getProductData()">Load Product Data</button><br><br>
+            
+            @for (item of productData; track item) {
+                <li>
+                    <ul>{{item.name| uppercase}}--{{item.brand}}--{{item.price|currency:'RS. '}}</ul>
+                </li>
+            }
+            
+        </div>
+        <div class="col-4"></div>
+    </div>
+    <div class="row mx-2 my-4">
+        <div class="col">
+            <table style="width: 100%;">
+                <thead>
+                    <tr>
+                        <th>Id</th>
+                        <th>Name</th>
+                        <th>Username</th>
+                        <th>Email</th>
+                        <th>Website</th>
+                        <th>Company_name</th>
+                        <th>Adress_geo_lat</th>
+                        <th>Adress_geo_lng</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let item of productList;">
+                        <td>{{item.id}}</td>
+                        <td>{{item.name}}</td>
+                        <td>{{item.username}}</td>
+                        <td>{{item.email}}</td>
+                        <td>{{item.website}}</td>
+                        <td>{{item.company.name}}</td>
+                        <td>{{item.address.geo.lat}}</td>
+                        <td>{{item.address.geo.lng}}</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+        </div>
+    </div>
+</div>
+
+
+@for(product of imageList; track product.id){
+    <ul>
+        <li>{{product.id}}</li>
+        <li>{{product.title}}</li>
+        <li>{{product.price}}</li>
+        <li>{{product.category}}</li>
+        <li><img src="{{product.thumbnail}}" alt=""></li>
+    </ul>
+}
+                   
+       
+<style>
+    th, td {
+        border: 1px solid #333;
+        padding: 8px;
+        text-align: left;
+    }
+    th {
+        background-color: #f2f2f2;
+    }
+</style>

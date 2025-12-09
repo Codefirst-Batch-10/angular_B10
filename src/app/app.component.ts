@@ -7,7 +7,7 @@ import { ServiceComponent } from "../components/service/service.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, PipeComponentComponent, ServiceComponent],
+  imports: [RouterOutlet, ServiceComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
