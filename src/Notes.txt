@@ -152,3 +152,30 @@ I (command line interface)
    iv) Two way data Binding   
    ~ (comp.html to comp.ts) and (comp.ts to comp.html)
    ~ Import formModule and we used [(ngModel)] to bind the data
+---------------------------------------------------------------------------
+__________________________________________________________________________________________________________
+   DAY-3: [Directive]
+   ------
+   ~ Directives are responsible for adding and removing element or changing the behavior of DOM
+   ~ There are 4 types of directive:
+      1) Component directive:
+         - Every angular must have one component and declared by @component
+         - component directive have it's own template
+
+      2) Structural directives:
+         - It is responsible for adding or removing element from DOM
+         i) @if(){}- It's act according to given condition if condition is true element will be added in DOM
+         ii) @for(){} - This directive repeat itself for every element present in the list
+         iii) @switch(){}- It is used to compare more than one expression at a time
+
+      3) Attribute Directive:
+         - It is responsible for changing behavior of DOM
+         i) ngClass - we can provide more then one class using ngClass
+                    - We can pass array value,string,object
+
+         ii) ngStyle - Styling inline
+ 
+      4) Custom Directive :=>
+      ~ command to create : ng g d DirectiveName
+      ~ with the help of custom directive we can create our own directive
+      ~ with the help of custom directive we can write logic onces and implement all over the application.
