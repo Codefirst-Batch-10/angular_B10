@@ -183,3 +183,6 @@ ________________________________________________________________________________
 Day-4 (Pipes) : pipe i used to tranform the data.
 1) build in Pipes : JSON, date , currency , lowercase , uppercase
 2) custome pipe : ng g p pipe_name
+--------------------------------------------------------------------------------
+Day -5 : Service
+- code reusability, http calls, shared logic.

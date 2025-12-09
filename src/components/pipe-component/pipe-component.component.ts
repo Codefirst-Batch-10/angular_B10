@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { NaValuePipe } from '../../pipes/truncate.pipe';
 import { TruncatePipe } from "../../pipes/truncate.pipe";
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-pipe-component',
@@ -42,4 +43,10 @@ export class PipeComponentComponent {
     { sId: 105, name: 'EEE', city: '', contactNo: '9999955555' }
   ]
 
+  constructor(private _authService:AuthService) {}
+
+  ngOnInit() {
+    const pipe = this._authService.addition(100,200);
+    console.log(pipe);
+  }
 }
