@@ -4,10 +4,11 @@ import { DataBindingComponent } from "../components/data-binding/data-binding.co
 import { DefaultDirectivesComponent } from "../components/default-directives/default-directives.component";
 import { PipeComponentComponent } from "../components/pipe-component/pipe-component.component";
 import { ServiceComponent } from "../components/service/service.component";
+import { ParentComponent } from "../components/parent/parent.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, ServiceComponent],
+  imports: [RouterOutlet, ParentComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })

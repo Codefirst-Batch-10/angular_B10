@@ -49,11 +49,11 @@
 
 @for(product of imageList; track product.id){
     <ul>
-        <li>{{product.id}}</li>
-        <li>{{product.title}}</li>
-        <li>{{product.price}}</li>
-        <li>{{product.category}}</li>
-        <li><img src="{{product.thumbnail}}" alt=""></li>
+        <li><b>id : </b>{{product.id}}</li>
+        <li><b>title : </b>{{product.title}}</li>
+        <li><b>price : </b>{{product.price}}</li>
+        <li><b>category : </b>{{product.category}}</li>
+        <li><b>Thumbnail : </b><img src="{{product.thumbnail}}" alt=""></li>
     </ul>
 }
                    
