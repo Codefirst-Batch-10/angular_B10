@@ -2,17 +2,19 @@ import { Component } from '@angular/core';
 import { AuthService } from '../../services/auth.service';
 import { CommonModule } from '@angular/common';
 import { ProductService } from '../../services/product.service';
+import { ChildComponent } from "../child/child.component";
 
 @Component({
   selector: 'app-service',
-  imports: [CommonModule],
+  imports: [CommonModule, ChildComponent],
   templateUrl: './service.component.html',
   styleUrl: './service.component.css'
 })
 export class ServiceComponent {
 
+
   productList: any;
-  imageList:any;
+  imageList: any;
   constructor(private _authService: AuthService, private _getProduct: ProductService) { }
 
   ngOnInit() {
@@ -21,8 +23,8 @@ export class ServiceComponent {
     });
 
     {
-      this._getProduct.getImage().subscribe((data:any)=>{
-        this.imageList=data.products
+      this._getProduct.getImage().subscribe((data: any) => {
+        this.imageList = data.products
       })
     }
 
@@ -34,8 +36,11 @@ export class ServiceComponent {
       this._getProduct.getProductList().subscribe((res: any) => {
         this.productList = res
 
-      })
+      });
     }
+
+
+
   }
 
   productData: {

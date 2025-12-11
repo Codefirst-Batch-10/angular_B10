@@ -1,4 +1,4 @@
 <p>parent works!</p>
 <h3>Parent : {{companyName}}</h3>
 <app-child [sendToChild]="companyName" (messageEvt)="getChildMesssage($event)"></app-child>
-<h5>{{childMsg}}</h5>
+<h5>{{childMsg | json}}</h5>

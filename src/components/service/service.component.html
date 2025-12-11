@@ -1,7 +1,7 @@
 <div class=" container-fluid">
     <div class="row my-5 mt-5">
-        <div class="col-4"></div>
-        <div class="col-4">
+        <div class="col-5"></div>
+        <div class="col-2 text-center">
             <button (click)="getProductData()">Load Product Data</button><br><br>
             
             @for (item of productData; track item) {
@@ -11,7 +11,7 @@
             }
             
         </div>
-        <div class="col-4"></div>
+        <div class="col-5"></div>
     </div>
     <div class="row mx-2 my-4">
         <div class="col">
@@ -47,7 +47,11 @@
 </div>
 
 
-@for(product of imageList; track product.id){
+<app-child [sendData]="productList"></app-child>
+
+
+
+<!-- @for(product of imageList; track product.id){
     <ul>
         <li><b>id : </b>{{product.id}}</li>
         <li><b>title : </b>{{product.title}}</li>
@@ -55,7 +59,7 @@
         <li><b>category : </b>{{product.category}}</li>
         <li><b>Thumbnail : </b><img src="{{product.thumbnail}}" alt=""></li>
     </ul>
-}
+} -->
                    
        
 <style>
@@ -68,3 +72,14 @@
         background-color: #f2f2f2;
     }
 </style>
+
+
+<div class="container-fluid my-5 text-center">
+    <div class="row">
+        <div class="col">avd</div>
+        <div class="col">avd</div>
+        <div class="col">avd</div>
+        <div class="col">avd</div>
+        <div class="col">avd</div>
+    </div>
+</div>

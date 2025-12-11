@@ -1,7 +1,31 @@
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <div class="container">
+        <a class="navbar-brand" href="#">Brand</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNavbar" aria-controls="mainNavbar" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-<!-- <app-data-binding></app-data-binding> -->
- <!-- <app-default-directives></app-default-directives> -->
-  <!-- <app-pipe-component></app-pipe-component> -->
-   <!-- <app-service></app-service> -->
-    <app-parent></app-parent>
+        <div class="collapse navbar-collapse" id="mainNavbar">
+          <ul class="navbar-nav ms-5 mb-2 mb-lg-0 gap-4">
+            <li class="nav-item"><a class="nav-link active" aria-current="page" routerLink="service">service</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="dataBinding">Binding</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="defaultdDirective">Directive</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="pipeComponent">pipeComponent</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="parent">parent</a></li>
+            <li class="nav-item"><a class="nav-link" routerLink="child">child</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Pricing</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">FAQ</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Careers</a></li>
+            <li class="nav-item"><a class="nav-link" href="#">Login</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Optional page content to see spacing -->
+    <main class="container mt-5 text-center">
+      <h1>Let's start</h1>
+    </main>
+
 <router-outlet />
