@@ -187,3 +187,7 @@ Day-4 (Pipes) : pipe i used to tranform the data.
 --------------------------------------------------------------------------------
 Day -5 : Service
 - code reusability, http calls, shared logic.
+---------------------------------------------------------------------------------
+Day-6 : Inter Component communicate.
+- Parent to child => @Input
+- child to parent => @Output / @viewChild
