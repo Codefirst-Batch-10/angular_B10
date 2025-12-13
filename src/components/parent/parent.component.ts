@@ -24,4 +24,9 @@ export class ParentComponent {
     this.childComp.childFunction();   
   }
 
+  ngDoCheck() {
+
+  }
+
+
 }
