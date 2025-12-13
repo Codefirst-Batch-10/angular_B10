@@ -127,7 +127,12 @@ I (command line interface)
     7) Dependency Injection
     8) Data Binding => Interpolation, property binding, eventBinding, two-away dataBinding
     ------------------------------------------
-       3) Decorators=> 
+
+
+
+
+
+   3) Decorators=> 
    ~ Decorators tells to angular how to process on class
    ~ most common decorators are @Component, @NgModule    
    MetaData- MetaData is extra info about decorator
