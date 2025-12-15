@@ -1,0 +1,31 @@
+<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+    <div>
+        <label for="">Email : </label>
+        <input type="email" formControlName="email" name="email" id="emailId" placeholder="Enter email">
+        @if(isInvalid('email')) {
+            <small style="color: red;">
+                @if(userForm.get('email')?.errors?.['required']){
+                    Email is required                  
+                }
+                @if(userForm.get('email')?.errors?.['email']){
+                    Enter correct email                 
+                }
+            </small>
+        }
+    </div>
+    <br>
+
+    <div style="margin-top: 10px;">
+        <label for="">Password : </label>
+        <input type="password" formControlName="password" name="password" id="passwordId" placeholder="Enter password">
+        @if(isInvalid('password') ) {
+            <small style="color: red;">
+                Password length max 6
+            </small>
+        }
+    </div>
+
+    <div>
+        <button type="submit">Save</button>
+    </div>
+</form>

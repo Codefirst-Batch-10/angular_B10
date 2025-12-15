@@ -297,3 +297,8 @@ Day-7 :
 			return data;
 		}
 -----------------------------------------------------------------------------------------
+Day-9 : Angular forms
+1) Reactive form.
+2) Template driven form.
+
+
