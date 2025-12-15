@@ -5,10 +5,11 @@ import { DefaultDirectivesComponent } from "../components/default-directives/def
 import { PipeComponentComponent } from "../components/pipe-component/pipe-component.component";
 import { ServiceComponent } from "../components/service/service.component";
 import { ParentComponent } from "../components/parent/parent.component";
+import { ReactiveFormComponent } from "../components/reactive-form/reactive-form.component";
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, DataBindingComponent, DefaultDirectivesComponent, PipeComponentComponent, ServiceComponent, ParentComponent],
+  imports: [RouterOutlet, DataBindingComponent, DefaultDirectivesComponent, PipeComponentComponent, ServiceComponent, ParentComponent, ReactiveFormComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
