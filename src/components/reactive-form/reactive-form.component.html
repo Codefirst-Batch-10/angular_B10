@@ -1,31 +1,53 @@
-<form [formGroup]="userForm" (ngSubmit)="onSubmit()">
-    <div>
-        <label for="">Email : </label>
-        <input type="email" formControlName="email" name="email" id="emailId" placeholder="Enter email">
-        @if(isInvalid('email')) {
-            <small style="color: red;">
-                @if(userForm.get('email')?.errors?.['required']){
-                    Email is required                  
-                }
-                @if(userForm.get('email')?.errors?.['email']){
-                    Enter correct email                 
-                }
-            </small>
-        }
-    </div>
-    <br>
+<div class="row">
+    <div class="col-4"></div>
+    <div class="col-4 my-5">
 
-    <div style="margin-top: 10px;">
-        <label for="">Password : </label>
-        <input type="password" formControlName="password" name="password" id="passwordId" placeholder="Enter password">
-        @if(isInvalid('password') ) {
-            <small style="color: red;">
-                Password length max 6
-            </small>
-        }
-    </div>
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+            <div>
+                <label for="">Email :</label>
+                <input type="email" formControlName="email" name="email" id="emailId" placeholder="Enter email"
+                    class="ms-5">
+                @if(isInvalid('email')) {
+                <small style="color: red; display: block;" class="ms-5 ps-5">
+                    @if(userForm.get('email')?.errors?.['required']){
+                    Email is required
+                    }
+                    @if(userForm.get('email')?.errors?.['email']){
+                    Enter correct email
+                    }
+                </small>
+                }
+            </div>
+            <br>
 
-    <div>
-        <button type="submit">Save</button>
+            <div style="margin-top: 10px;">
+                <label for="">Password : </label>
+                <input type="password" formControlName="password" name="password" id="passwordId" placeholder="Enter password" class="ms-4">
+                @if(isPasswordValid('password')){
+                <small class="text-danger d-block ms-5 ps-5 ">
+                    @if (userForm.get('password')?.touched
+                    && userForm.get('password')?.errors?.['required']) {
+                    Password is required
+                    }
+                    @if(userForm.get('password')?.errors?.['minlength']){
+                        Min length should be 8
+                    }
+                    @if(userForm.get('password')?.errors?.['maxlength']){
+                        Max length should be 12
+                    }
+                    <!-- @if (userForm.get('password')?.touched
+                    && userForm.get('password')?.errors?.['pattern']) {
+                    Password requires at least 1 digit, 1 lowercase and 1 uppercase letter
+                    } -->
+                </small>
+                }
+            </div><br>
+
+            <div>
+                <button type="submit" class="ms-5">Save</button>
+            </div>
+        </form>
+
     </div>
-</form>
+    <div class="col-4"></div>
+</div>

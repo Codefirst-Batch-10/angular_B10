@@ -5,6 +5,7 @@ import { DefaultDirectivesComponent } from '../components/default-directives/def
 import { PipeComponentComponent } from '../components/pipe-component/pipe-component.component';
 import { ParentComponent } from '../components/parent/parent.component';
 import { ChildComponent } from '../components/child/child.component';
+import { ReactiveFormComponent } from '../components/reactive-form/reactive-form.component';
 
 export const routes: Routes = [
     {
@@ -30,5 +31,9 @@ export const routes: Routes = [
     {
         path:'child',
         component:ChildComponent
-    }
+    },
+    {
+        path:'reactive',
+        component:ReactiveFormComponent
+    },
 ];

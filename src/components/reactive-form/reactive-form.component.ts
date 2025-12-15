@@ -14,8 +14,10 @@ export class ReactiveFormComponent {
 
     this.userForm = this._formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.maxLength(6)]]
-    });
+      password: ['',[Validators.required,Validators.minLength(8),Validators.maxLength(12),  
+        // Validators.pattern(/^(?=.*\d)(?=.*[a-z])(?=.*[A-Z])$/)
+        ]]
+    }); 
   }
 
   onSubmit() {
@@ -27,5 +29,10 @@ export class ReactiveFormComponent {
   isInvalid(controlName:any) {
     const control = this.userForm.get(controlName);
     return control.invalid && (control.touched || control.dirty);
+  }
+
+  isPasswordValid(controlName:any){
+    const passControl= this.userForm.get(controlName);
+    return passControl.invalid && passControl.touched;
   }
 }
