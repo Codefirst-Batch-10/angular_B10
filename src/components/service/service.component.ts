@@ -3,6 +3,7 @@ import { AuthService } from '../../services/auth.service';
 import { CommonModule } from '@angular/common';
 import { ProductService } from '../../services/product.service';
 import { ChildComponent } from "../child/child.component";
+import { Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-service',
@@ -14,13 +15,18 @@ export class ServiceComponent {
 
 
   productList: any;
+  num = 100;
   imageList: any;
+  subscription!: Subscription;
+
   constructor(private _authService: AuthService, private _getProduct: ProductService) { }
 
+
+
   ngOnInit() {
-    this._authService.getUserList().subscribe((res) => {
+    this.subscription.add(this._authService.getUserList().subscribe((res) => {
       console.log(res);
-    });
+    }));
 
     {
       this._getProduct.getImage().subscribe((data: any) => {
@@ -39,8 +45,6 @@ export class ServiceComponent {
       });
     }
 
-
-
   }
 
   productData: {
@@ -55,6 +59,10 @@ export class ServiceComponent {
 
   }
 
+  ngOnDestroy() {
+    this.num = 0;
+    this.subscription.unsubscribe();
+  }
 }
 function getProduct() {
   throw new Error('Function not implemented.');

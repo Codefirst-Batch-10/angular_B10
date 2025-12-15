@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, EventEmitter, Input, Output } from '@angular/core';
+import { Component, EventEmitter, Input, Output, SimpleChange } from '@angular/core';
 
 @Component({
   selector: 'app-child',
@@ -23,7 +23,17 @@ export class ChildComponent {
     this.messageEvt.emit(arr);
   }
 
+  ngOnChanges(changes:SimpleChange) {
+    if(changes.currentValue == changes.previousValue) {
+      console.log("The value has changed");
+    }
+  }
+
   childFunction() {
     console.log('I am child method');
+
   }
+
+  
+  
 }
