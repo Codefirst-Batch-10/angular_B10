@@ -192,7 +192,114 @@ Day-4 (Pipes) : pipe i used to tranform the data.
 --------------------------------------------------------------------------------
 Day -5 : Service
 - code reusability, http calls, shared logic.
----------------------------------------------------------------------------------
-Day-6 : Inter Component communicate.
-- Parent to child => @Input
-- child to parent => @Output / @viewChild
+   ~ HttpClient is built in service used to communicate with backend.
+   ~ It is also used to send http request and get the response.
+   ~ We will get the response in the form of observables.
+   ~ http can cancel http request.
+   ~ Error handling capability.
+   ~ http gives us -> get, post, put, delete.
+
+   * Observables:
+   ~ Observables are asynchronous or parallel flow of execution which can handle multiple events at a time.
+   ~ Observable is not a part of core angular, this is feature of angular added from library RxJS.
+   ~ Observable can handle three events or methods:
+   ~ next(), complete(), error().
+   ~ observables can also handle the errors.
+   ~ observables can be cancellables.
+   ~ observables are used to API integration to communicate with backend.
+   ~ Observer is responsible for calling above three methods.
+-------------------------------------------------- -------------------------------
+Day-6 : Inter component Communication:
+
+	Used to pass the data from one component to another component.
+	it might be parent child.
+	It might be siblings.
+	if it is parent child relationship then we have three options to communicate the data depending on the conditions.
+	1. @Input: 
+	2. @Output:
+	3. @ViewChild:
+
+	If it is siblings component then we have two option i.e. Service communication and routing.
+	
+	1. @Input: 
+		It is @Input decorator used to send the data from parent to child component.
+			// Parent Component
+			<app-child [childMessage]="parentMessage"></app-child>
+		It will use property binding.
+	
+	2. @output:
+		It is decorator used to send the data from child to parent.
+		It used an custom event or event emitter.
+			// Child Component
+			@Output() messageEvent = new EventEmitter<string>();
+
+			sendMessage() {
+			this.messageEvent.emit(this.message);
+		}
+		It is an event binding.
+
+   3) @viewChild:
+      used to communicate from child to parent like @output.
+      Here child component will be injected into parent component.
+      difference is that in viewChild we can take the control of whole child component inside the parent.
+      with the help of viewChild I can access all properties and methods of child component.
+      we can call methods and properties of child component inside ngAfterViewInit method only.
+	  @ViewChild(ChildComponent) childComponent!: ChildComponent;
+
+		ngAfterViewInit() {
+		this.childComponent.someMethod();
+		}
+	
+	
+   4) Services: 
+      We can do communication of component which doest have any parent child relationship with the help of service.  
+--------------------------------------------------------------------------------
+Day-7 : 
+*Constructor :=>
+   ~ It is not an part of Angular life cycle.
+   ~ It Create object of the class.
+   ~ It is used for inject dependency.
+   ~ It is not compulsory to write Constructor if we don't have any dependency.
+   ~ If we are not writing constructor then also it is going to execute by default.
+
+*Angular Life Cycle :=>
+   ~ Angular life cycle is nothing but component life cycle. 
+   1) ngOnChanges(): when ever any changes happen in input property then this method going to call.
+   2) ngOnInit(): It is responsible for initialize all the variables of component inside the DOM.
+   3) ngDoCheck(): It is responsible for the change detection in the component.
+   4) ngAfterContentInit(): Initialize all the projected views or other component inside the main component.
+   5) ngAfterContentChecked(): It calls when any changes detect in projected views
+   6) ngAfterViewInit(): It calls when projected view and component view fully initialize
+   7) ngAfterViewChecked(): It calls when projected view and component view checks and update
+   8) OnDestroy(): used to clean up logic for component 
+--------------------------------------------------------------------------------------------
+   DAY-8:[Promise]
+
+   - Promise come from ES6
+   - It is async as well as sync flow of execution which can handle singal event at a time
+   - In promise we will get singal value as output i.e resolve or reject
+       Resolved : successfully executed promise
+       Reject : unsuccessfully executed promise
+   - Promises are not concealable
+   - It is used to manage async http calls
+   - Promises gives surety about the output in future 
+
+      -----------------------------------------------------------------------------------------------------------|    
+      |        Observable									   |                   Promises			             |
+      |--------------------------------------------------------|-------------------------------------------------| 
+      |- It comes from RxJs original JS                        |-It comes from ES6                               |
+      |- It can handle multiple events                         |- It can handle single event                     |
+      |- It is cancelable                            	       |- It is not cancelable                           |
+      |- It has async flow of execution                        | - It is sync as well as async flow              |
+      |- It is required to subscribe                           |- .then used convert into readble formar         |
+      |- can handle next, error, complete                      |- can handle resolve or reject
+      ------------------------------------------------------------------------------------------------------------
+	
+	- async and await are used to handle asynchronous operations.
+	- async tell us that this function will return promise, inside async there is await which pause the function untile promise get resolved.
+		async function fetchData() {
+			const response = await fetch('https://api.example.com/data');
+			const data = await response.json();
+			return data;
+		}
+-----------------------------------------------------------------------------------------
