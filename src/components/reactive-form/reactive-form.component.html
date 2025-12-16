@@ -1,57 +1,278 @@
-<div class="row">
-    <div class="col-4"></div>
-    <div class="col-4 my-5">
+<div class="container">
+  <div class="row justify-content-center">
+    <div class="col-md-6 col-lg-5 my-5">
 
-        <form [formGroup]="userForm" (ngSubmit)="onSubmit()" style="width: 100%;">
-            <div>
-                <label for="">Email :</label>
-                <input type="email" formControlName="email" name="email" id="emailId" placeholder="Enter email"
-                    class="ms-5">
-                @if(isInvalid('email')) {
-                <small style="color: red; display: block;" class="ms-5 ps-5">
-                    @if(userForm.get('email')?.errors?.['required']){
+      <div class="card shadow">
+        <div class="card-body">
+
+          <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+
+            <!-- EMAIL -->
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+
+              <input
+                type="email"
+                class="form-control"
+                formControlName="email"
+                placeholder="Enter email">
+
+              @if(isInvalid('email')) {
+                <small class="text-danger">
+                  @if(userForm.get('email')?.errors?.['required']){
                     Email is required
-                    }
-                    @if(userForm.get('email')?.errors?.['email']){
+                  }
+                  @if(userForm.get('email')?.errors?.['email']){
                     Enter correct email
-                    }
+                  }
                 </small>
-                }
+              }
             </div>
-            <br>
 
-            <div style="margin-top: 10px;">
-                <label for="">Password : </label>
-                <input type="password" formControlName="password" name="password" id="passwordId"
-                    placeholder="Enter password" class="ms-3">
-                @if(isPasswordValid('password')){
-                <small class="text-danger d-block ms-5 ps-5 ">
-                    @if (userForm.get('password')?.touched
-                    && userForm.get('password')?.errors?.['required']) {
+            <!-- PASSWORD -->
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+
+              <input
+                type="password"
+                class="form-control"
+                formControlName="password"
+                placeholder="Enter password">
+
+              @if(isPasswordValid('password')){
+                <small class="text-danger">
+                  @if(userForm.get('password')?.touched
+                      && userForm.get('password')?.errors?.['required']) {
                     Password is required
-                    }
-                    @if(userForm.get('password')?.errors?.['minlength']){
+                  }
+                  @if(userForm.get('password')?.errors?.['minlength']){
                     Min length should be 8
-                    }
-                    @if(userForm.get('password')?.errors?.['maxlength']){
+                  }
+                  @if(userForm.get('password')?.errors?.['maxlength']){
                     Max length should be 12
-                    }
-                    <!-- @if (userForm.get('password')?.touched
-                    && userForm.get('password')?.errors?.['pattern']) {
-                    Password requires at least 1 digit, 1 lowercase and 1 uppercase letter
-                    } -->
+                  }
                 </small>
-                }
-            </div><br>
-
-            <div>
-                <button type="submit" class="ms-5">Save</button>
+              }
             </div>
-        </form>
+
+            <!-- BUTTON -->
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary">
+                Save
+              </button>
+            </div>
+
+          </form>
+
+        </div>
+      </div>
 
     </div>
-    <div class="col-4"></div>
+  </div>
 </div>
+
+
+
+
+<br><br><br>
+<hr><br><br><br>
+
+
+
+<div class="container mt-5">
+  <div class="row justify-content-center">
+    <div class="col-lg-6 col-md-8 col-12">
+
+      <div class="card shadow">
+        <div class="card-header bg-primary text-white text-center">
+          <h4 class="mb-0">User Registration</h4>
+        </div>
+
+        <div class="card-body">
+          <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+
+            <!-- NAME -->
+            <div class="mb-3">
+              <label class="form-label">Name</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="name"
+                placeholder="Enter name">
+
+              @if(isInvalid('name')){
+                <small class="text-danger">
+                  @if(userForm.get('name')?.touched && userForm.get('name')?.errors?.['required']){
+                    Name is required
+                  }
+                  @if(userForm.get('name')?.errors?.['minlength']){
+                    Enter correct name
+                  }
+                </small>
+              }
+            </div>
+
+            <!-- EMAIL -->
+            <div class="mb-3">
+              <label class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                formControlName="email"
+                placeholder="Enter email">
+
+              @if(isInvalid('email')){
+                <small class="text-danger">
+                  @if(userForm.get('email')?.touched && userForm.get('email')?.errors?.['required']){
+                    Email is required
+                  }
+                  @if(userForm.get('email')?.errors?.['email']){
+                    Enter correct email
+                  }
+                </small>
+              }
+            </div>
+
+            <!-- PASSWORD -->
+            <div class="mb-3">
+              <label class="form-label">Password</label>
+              <input
+                type="password"
+                class="form-control"
+                formControlName="password"
+                placeholder="Enter password">
+
+              @if(isInvalid('password')){
+                <small class="text-danger">
+                  @if(userForm.get('password')?.errors?.['required']){
+                    Password is required
+                  }
+                  @if(userForm.get('password')?.errors?.['minlength']){
+                    Min length should be 8
+                  }
+                  @if(userForm.get('password')?.errors?.['maxlength']){
+                    Max length should be 20
+                  }
+                </small>
+              }
+            </div>
+
+            <!-- AGE INPUT -->
+            <div class="mb-3">
+              <label class="form-label">Age</label>
+              <input
+                type="number"
+                class="form-control"
+                formControlName="ageUser"
+                placeholder="Enter age">
+
+              @if(isInvalid('ageUser')){
+                <small class="text-danger">
+                  @if(userForm.get('ageUser')?.errors?.['required']){
+                    Age is required
+                  }
+                  @if(userForm.get('ageUser')?.errors?.['min']){
+                    User should be adult
+                  }
+                  @if(userForm.get('ageUser')?.errors?.['max']){
+                    User should be little younger
+                  }
+                </small>
+              }
+            </div>
+
+            <!-- SLIDER -->
+            <div class="mb-4">
+              <label class="form-label">Age Range</label>
+              <mat-slider min="1" max="150" step="1" showTickMarks discrete>
+                <input matSliderThumb>
+              </mat-slider>
+            </div>
+
+            <!-- GENDER -->
+            <div class="mb-4">
+              <label class="form-label d-block">Gender</label>
+              <mat-slide-toggle class="me-3">Male</mat-slide-toggle>
+              <mat-slide-toggle class="me-3">Female</mat-slide-toggle>
+              <mat-slide-toggle>Other</mat-slide-toggle>
+            </div>
+
+            <!-- ADDRESS -->
+            <div class="mb-3">
+              <label class="form-label">Address</label>
+              <textarea
+                class="form-control"
+                rows="3"
+                formControlName="address"
+                placeholder="Enter address"></textarea>
+
+              @if(isInvalid('address')){
+                <small class="text-danger">
+                  @if(userForm.get('address')?.errors?.['required']){
+                    Address is required
+                  }
+                  @if(userForm.get('address')?.errors?.['maxlength']){
+                    Address is too long
+                  }
+                </small>
+              }
+            </div>
+
+            <!-- MOBILE -->
+            <div class="mb-3">
+              <label class="form-label">Mobile Number</label>
+              <input
+                type="text"
+                class="form-control"
+                formControlName="mobile"
+                placeholder="Enter mobile number">
+
+              @if(isInvalid('mobile')){
+                <small class="text-danger">
+                  @if(userForm.get('mobile')?.errors?.['required']){
+                    Mobile number is required
+                  }
+                  @if(userForm.get('mobile')?.errors?.['minlength'] ||
+                       userForm.get('mobile')?.errors?.['maxlength']){
+                    Mobile number must be 10 digits
+                  }
+                </small>
+              }
+            </div>
+
+            <!-- DOB -->
+            <div class="mb-3">
+              <mat-form-field class="w-100" appearance="outline">
+                <mat-label>Date of Birth</mat-label>
+                <input matInput formControlName="dob" [matDatepicker]="picker">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+              </mat-form-field>
+            </div>
+
+            <!-- CALCULATED AGE -->
+            <div class="mb-4">
+              <mat-form-field class="w-100" appearance="outline">
+                <mat-label>Calculated Age</mat-label>
+                <input matInput formControlName="age" readonly>
+              </mat-form-field>
+            </div>
+
+            <!-- SUBMIT -->
+            <div class="d-grid">
+              <button type="submit" class="btn btn-primary">
+                Submit
+              </button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
 
 
 
@@ -61,136 +282,34 @@
 
 
 <div class="container">
-    <div class="row">
-        <div class="col-4"></div>
-        <div class="col-4">
+  <div class="row">
+    <div class="col-4"></div>
 
-            <form [formGroup]="userForm" (ngSubmit)="onsub()">
+    <div class="col-4">
+      <form [formGroup]="registrationForm" (ngSubmit)="onSub()" >
 
-                <div>
-                    <label>Name</label><br>
-                    <input type="text" formControlName="name" name="name" placeholder="Enter name">
-                    @if(isInvalid('name')){
-                    <small class="text-danger ms-3">
-                        @if(userForm.get('name')?.touched && userForm.get('name')?.errors?.['required']){
-                        name is required
-                        }@if(userForm.get('name')?.errors?.['minlength']){
-                        enter correct Name
-                        }
-                    </small>
-                    }
-                </div>
+        <label>Name : </label>
+        <input type="text" formControlName="name" placeholder="Enter your name" class="ms-2 my-3"><br>
 
-                <br>
-
-                <div>
-                    <label>Email</label><br>
-                    <input type="email" formControlName="email" name="email" placeholder="Enter email">
-                    @if(isInvalid('email')){
-                    <small class="text-danger ms-3">
-                        @if(userForm.get('email')?.touched && userForm.get('email')?.errors?.['required']){
-                        email is required
-                        }@if(userForm.get('email')?.errors?.['email']){
-                        enter correct email
-                        }
-                    </small>
-                    }
-                </div>
-
-                <br>
-
-                <div>
-                    <label>Password</label><br>
-                    <input type="password" formControlName="password" name="password" placeholder="Enter password">
-                    @if(isInvalid('password')){
-                    <small class="text-danger ms-3">
-                        @if(userForm.get('password')?.errors?.['required']){
-                        password is required
-                        }@if(userForm.get('password')?.errors?.['minlength']){
-                        password should have more than 8 characters
-                        }
-                        @if(userForm.get('password')?.errors?.['maxlength']){
-                        password should have less than 20 characters
-                        }
-                    </small>
-                    }
-                </div>
-
-                <br>
-
-                <div>
-                    <label>Age</label><br>
-                    <input type="number" formControlName="ageUser" name="ageUser" placeholder="Enter age">
-                    @if(isInvalid('ageUser')){
-                    <small class="text-danger ms-3">
-                        @if(userForm.get('ageUser')?.errors?.['required']){
-                        age is required
-                        }@if(userForm.get('ageUser')?.errors?.['max']){
-                        user should be little younger
-                        }@if(userForm.get('ageUser')?.errors?.['min']){
-                        user should be adult
-                        }
-                    </small>
-                    }
-                </div>
-
-                <br>
-
-                <div>
-                    <label>Address</label><br>
-                    <textarea name="address" formControlName="address" name="Enter address"></textarea>
-                    @if(isInvalid('address')){
-                    <small class="text-danger ms-3">
-                        @if(userForm.get('address')?.errors?.['required']){
-                        address is necessary
-                        }@if(userForm.get('address')?.errors?.['maxlength']){
-                        it should be address, not such lengthy paragraph
-                        }
-                    </small>
-                    }
-                </div>
-
-                <br>
-
-                <div>
-                    <label>Mobile Number</label><br>
-                    <input type="text" formControlName="mobile" name="mobile" placeholder="Enter mobile number">
-                    @if(isInvalid('mobile')){
-                    <small class="text-danger ms-3">
-                        @if(userForm.get('mobile')?.errors?.['required']){
-                        number is necessary
-                        }@if(userForm.get('mobile')?.errors?.['maxlength']){
-                        number should be of 10 digits
-                        }@if(userForm.get('mobile')?.errors?.['minlength']){
-                        number should be of 10 digits
-                        }
-                    </small>
-                    }
-                </div><br><br>
-
-                <mat-form-field>
-                    <mat-label>Choose Date of birth</mat-label>
-                    <input matInput formControlName="dob" [matDatepicker]="picker">
-                    <mat-hint>MM/DD/YYYY</mat-hint>
-                    <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
-                    <mat-datepicker #picker></mat-datepicker>
-                </mat-form-field><br><br>
-
-                <mat-form-field>
-                    <mat-label>Age</mat-label>
-                    <input matInput formControlName="age">
-                </mat-form-field>
-
-
-
-
-                <br>
-
-                <button type="submit">Submit</button>
-
-            </form>
-
+        <div formArrayName="emails">
+            <label for="">Emails : </label>
+          <div *ngFor="let email of registrationForm.get('emails').controls; let i = index">
+            <input
+              type="email"
+              [formControlName]="i"
+              placeholder="Email {{ i + 1 }}">
+          </div>
         </div>
-        <div class="col-4"></div>
+
+        <button type="submit">Submit</button>
+
+      </form>
     </div>
+
+    <div class="col-4"></div>
+  </div>
 </div>
+
+<br><br><br><br><br><br>
+
+<app-dyanamic-form></app-dyanamic-form>

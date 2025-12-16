@@ -1,0 +1,38 @@
+<div class="container mt-4">
+  <div class="card shadow p-4">
+    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+
+      <div class="mb-3">
+        <label>Name</label>
+        <input type="text" class="form-control" formControlName="name">
+      </div>
+
+      <div formArrayName="emails">
+        <label class="fw-bold">Emails</label>
+
+        <div
+          class="input-group mb-2"
+          *ngFor="let email of emails.controls; let i = index">
+
+          <input
+            type="email"
+            class="form-control"
+            [formControlName]="i"
+            placeholder="Email {{ i + 1 }}">
+
+        </div>
+      </div>
+
+      <button type="button" class="btn btn-outline-primary" (click)="addEmail()">
+        + Add Email
+      </button>
+
+      <hr>
+
+      <button type="submit" class="btn btn-success">
+        Submit
+      </button>
+
+    </form>
+  </div>
+</div>
