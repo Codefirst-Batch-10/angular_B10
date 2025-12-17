@@ -1,6 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { HoverHighlightDirective } from '../../shared/hover-highlight.directive';
+import { FormReactiveComponent } from "../form-reactive/form-reactive.component";
 
 @Component({
   selector: 'app-default-directives',

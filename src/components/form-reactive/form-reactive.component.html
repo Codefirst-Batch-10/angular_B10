@@ -1,0 +1,210 @@
+<div class="container my-5">
+
+    <!-- Header -->
+    <div class="bg-primary text-white p-4 d-flex justify-content-between align-items-center">
+        <h4 class="mb-0">Bank Loan Form</h4>
+        <h6 class="mb-0">ACME BANK</h6>
+    </div>
+
+    <!-- Form Body -->
+    <div class="border p-4">
+        <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
+
+            <!-- Row 1 -->
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label">Full Name</label>
+                    <input type="text" class="form-control" list="nameList" placeholder="Enter Full Name"
+                        formControlName="name">
+                    @if (isInvalid('name')) {
+                    <small class="text-danger">Name is required</small>
+                    }
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Date of Birth</label>
+                    <input type="date" class="form-control" formControlName="dob">
+                    @if (isInvalid('dob')) {
+                    <small class="text-danger">Date of birth is required</small>
+                    }
+                </div>
+            </div>
+
+            <!-- Row 2 -->
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label">Phone Number</label>
+                    <input type="text" class="form-control" formControlName="mobile">
+                    @if (isInvalid('mobile')) {
+                    <small class="text-danger">
+                        @if (userForm.get('mobile')?.errors?.['required']) {
+                        Mobile number is required
+                        }
+                        @if (userForm.get('mobile')?.errors?.['pattern']) {
+                        Mobile number must be of 10 "digits"
+                        }
+                    </small>
+                    }
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Email Address</label>
+                    <input type="email" class="form-control" formControlName="email">
+                    @if (isInvalid('email')) {
+                    <small class="text-danger">
+                        @if (userForm.get('email')?.errors?.['required']) {
+                        Email is required
+                        }
+                        @if (userForm.get('email')?.errors?.['email']) {
+                        Enter a valid email
+                        }
+                    </small>
+                    }
+                </div>
+            </div>
+
+            <!-- Address -->
+            <div class="mb-3">
+                <label class="form-label">Residential Address</label>
+                <input type="text" class="form-control" formControlName="address">
+                @if (isInvalid('address')) {
+                <small class="text-danger">Address is required</small>
+                }
+            </div>
+
+            <!-- Loan Type -->
+            <div class="mb-3">
+                <label class="form-label">Loan Type</label>
+
+                <div class="d-flex gap-4">
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="Personal" formControlName="loanType">
+                        <label class="form-check-label">Personal</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="Mortgage" formControlName="loanType">
+                        <label class="form-check-label">Mortgage</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="Auto" formControlName="loanType">
+                        <label class="form-check-label">Auto</label>
+                    </div>
+
+                    <div class="form-check">
+                        <input class="form-check-input" type="radio" value="Business" formControlName="loanType">
+                        <label class="form-check-label">Business</label>
+                    </div>
+                </div>
+
+                @if (isInvalid('loanType')) {
+                <small class="text-danger">Please select one loan type</small>
+                }
+            </div>
+
+            <!-- Loan Details -->
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label">Loan Amount Requested</label>
+                    <input type="number" class="form-control" formControlName="loanAmount">
+                    @if (isInvalid('loanAmount')) {
+                    <small class="text-danger">Loan amount is required</small>
+                    }
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Loan Purpose</label>
+                    <input type="text" class="form-control" formControlName="loanPurpose">
+                    @if (isInvalid('loanPurpose')) {
+                    <small class="text-danger">Loan purpose is required</small>
+                    }
+                </div>
+            </div>
+
+            <!-- Employer -->
+            <div class="mb-3">
+                <label class="form-label">Employer Name</label>
+                <input type="text" class="form-control" formControlName="employer">
+                @if (isInvalid('employer')) {
+                <small class="text-danger">Employer name is required</small>
+                }
+            </div>
+
+            <!-- Job -->
+            <div class="row mb-3">
+                <div class="col-md-6">
+                    <label class="form-label">Job Title</label>
+                    <input type="text" class="form-control" formControlName="jobTitle">
+                    @if (isInvalid('jobTitle')) {
+                    <small class="text-danger">Job title is required</small>
+                    }
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Monthly Income</label>
+                    <input type="number" class="form-control" formControlName="income">
+                    @if (isInvalid('income')) {
+                    <small class="text-danger">Income is required</small>
+                    }
+                </div>
+            </div>
+
+            <!-- Declaration -->
+            <p class="small mt-4">
+                I hereby confirm that the provided information is accurate and respectfully
+                request the bank to proceed with the processing of my loan application.
+            </p>
+
+            <!-- Signature -->
+            <div class="row mb-4">
+                <div class="col-md-6">
+                    <label class="form-label">Signature</label>
+                    <input type="text" class="form-control" formControlName="signature">
+                    @if (isInvalid('signature')) {
+                    <small class="text-danger">Signature is required</small>
+                    }
+                </div>
+
+                <div class="col-md-6">
+                    <label class="form-label">Date</label>
+                    <input type="date" class="form-control" formControlName="date">
+                    @if (isInvalid('date')) {
+                    <small class="text-danger">Date is required</small>
+                    }
+                </div>
+            </div>
+
+            <!-- Submit -->
+            <button type="submit" class="btn btn-primary px-5">
+                Submit
+            </button>
+
+        </form>
+    </div>
+</div><br><br>
+
+
+<app-form-react-child [sendReactData]="result"></app-form-react-child>
+
+
+<div class="container mt-4" *ngIf="result">
+
+    <table class="table table-bordered table-striped w-80 text-center">
+        <thead class="table-dark">
+            <tr class="text-center">
+                <th style="width: 40%">Field</th>
+                <th style="width: 40%">Value</th>
+            </tr>
+        </thead>
+
+        <tbody>
+            <tr *ngFor="let item of result | keyvalue">
+                <td class="fw-bold text-capitalize">{{ item.key }}</td>
+                <td>{{ item.value }}</td>
+            </tr>
+        </tbody>
+
+    </table>
+
+</div>

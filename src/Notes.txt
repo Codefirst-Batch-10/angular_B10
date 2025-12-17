@@ -306,5 +306,10 @@ FormArray: Manages a dynamic list of controls or groups.
 FormBuilder: Simplifies the creation of form structures, reducing boilerplate code.
 
 2) Template driven form.
-
+-----------------------------------------------------------------------------------------
+Day-9 : Lazy loading =>
+lazy loading component =>
+ home
+ dashboard
+ contact
 

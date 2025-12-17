@@ -9,14 +9,13 @@ import { MatSliderModule } from '@angular/material/slider'
 import {MatSlideToggleModule} from '@angular/material/slide-toggle';
 import { NgForOf } from "../../../node_modules/@angular/common/common_module.d-NEF7UaHr";
 import { NgFor } from '@angular/common';
-import { DyanamicFormComponent } from "../dyanamic-form/dyanamic-form.component";
 import { MatSelect } from "@angular/material/select";
 
 
 @Component({
   selector: 'app-reactive-form',
   standalone:true,
-  imports: [MatFormFieldModule, MatInputModule, MatDatepickerModule, MatIconModule, ReactiveFormsModule, MatSliderModule, MatSlideToggleModule, DyanamicFormComponent, MatOption, MatSelect],
+  imports: [MatFormFieldModule, MatInputModule, MatDatepickerModule, MatIconModule, ReactiveFormsModule, MatSliderModule, MatSlideToggleModule, MatOption, MatSelect],
   providers: [provideNativeDateAdapter()],
   templateUrl: './reactive-form.component.html',
   styleUrl: './reactive-form.component.css',
