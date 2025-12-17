@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { ControlFormComponent } from './control-form.component';
+import { RowComponent } from './row.component';
 
-describe('ControlFormComponent', () => {
-  let component: ControlFormComponent;
-  let fixture: ComponentFixture<ControlFormComponent>;
+describe('RowComponent', () => {
+  let component: RowComponent;
+  let fixture: ComponentFixture<RowComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ControlFormComponent]
+      imports: [RowComponent]
     })
     .compileComponents();
 
-    fixture = TestBed.createComponent(ControlFormComponent);
+    fixture = TestBed.createComponent(RowComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
