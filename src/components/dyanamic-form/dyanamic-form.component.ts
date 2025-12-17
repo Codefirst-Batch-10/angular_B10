@@ -2,6 +2,7 @@ import { NgFor, NgIf } from '@angular/common';
 import { Component, NgModule } from '@angular/core';
 import { FormGroup,FormBuilder,FormArray,FormControl, Validators, FormControlName, ReactiveFormsModule } from '@angular/forms';
 
+
 @Component({
   selector: 'app-dyanamic-form',
   imports: [ReactiveFormsModule, NgFor],
@@ -10,33 +11,23 @@ import { FormGroup,FormBuilder,FormArray,FormControl, Validators, FormControlNam
 })
 export class DyanamicFormComponent {
 
-  userForm: FormGroup;
+  registrationForm = new FormGroup({
+    name: new FormControl(''),
+    emails: new FormArray([
+      new FormControl('first@example.com'),
+      new FormControl('second@example.com')
+    ])
+  });
 
-  constructor(private fb: FormBuilder) {
-    this.userForm = new FormGroup({
-      name: new FormControl(''),
-      emails: new FormArray([
-        this.createEmail()
-      ])
-    });
-  }
-
-  // Create email control
-  createEmail() {
-    return this.fb.control('', [Validators.required, Validators.email]);
-  }
-
-  // Getter (IMPORTANT)
   get emails(): FormArray {
-    return this.userForm.get('emails') as FormArray;
+    return this.registrationForm.get('emails') as FormArray;
   }
 
-  // Add email
   addEmail() {
-    this.emails.push(this.createEmail());
+    this.emails.push(new FormControl(''));
   }
 
-  onSubmit() {
-    console.log(this.userForm.value);
+  onSub() {
+    console.log(this.registrationForm.value);
   }
 }

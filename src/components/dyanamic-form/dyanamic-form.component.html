@@ -1,38 +1,53 @@
-<div class="container mt-4">
-  <div class="card shadow p-4">
-    <form [formGroup]="userForm" (ngSubmit)="onSubmit()">
 
-      <div class="mb-3">
-        <label>Name</label>
-        <input type="text" class="form-control" formControlName="name">
-      </div>
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 col-md-8 col-12">
 
-      <div formArrayName="emails">
-        <label class="fw-bold">Emails</label>
+            <div class="card shadow">
+                <div class="card-header text-center bg-primary text-white">
+                    <h4 class="mb-0">Registration Form</h4>
+                </div>
 
-        <div
-          class="input-group mb-2"
-          *ngFor="let email of emails.controls; let i = index">
+                <div class="card-body">
+                    <form [formGroup]="registrationForm" (ngSubmit)="onSub()">
 
-          <input
-            type="email"
-            class="form-control"
-            [formControlName]="i"
-            placeholder="Email {{ i + 1 }}">
+                        <!-- Name -->
+                        <div class="mb-3">
+                            <label class="form-label">Name</label>
+                            <input type="text" class="form-control" formControlName="name"
+                                placeholder="Enter your name">
+                        </div>
+
+                        <!-- Emails -->
+                        <div formArrayName="emails" class="mb-3">
+                            <label class="form-label">Email Addresses</label>
+
+                            <div class="input-group mb-2" *ngFor="let email of emails.controls; let i = index">
+
+                                <span class="input-group-text">
+                                    {{ i + 1 }}
+                                </span>
+
+                                <input type="email" class="form-control" [formControlName]="i"
+                                    placeholder="Enter email">
+                            </div>
+                        </div>
+
+                        <!-- Buttons -->
+                        <div class="d-flex justify-content-between">
+                            <button type="button" class="btn btn-outline-secondary" (click)="addEmail()">
+                                + Add Email
+                            </button>
+
+                            <button type="submit" class="btn btn-primary">
+                                Submit
+                            </button>
+                        </div>
+
+                    </form>
+                </div>
+            </div>
 
         </div>
-      </div>
-
-      <button type="button" class="btn btn-outline-primary" (click)="addEmail()">
-        + Add Email
-      </button>
-
-      <hr>
-
-      <button type="submit" class="btn btn-success">
-        Submit
-      </button>
-
-    </form>
-  </div>
+    </div>
 </div>

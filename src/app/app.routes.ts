@@ -17,6 +17,9 @@ export const routes: Routes = [
         component:DataBindingComponent
     },
     {
+        path:'', loadComponent:()=> import('../components/dyanamic-form/dyanamic-form.component').then(m=>m.DyanamicFormComponent)
+    },
+    {
         path:'defaultdDirective',
         component:DefaultDirectivesComponent
     },

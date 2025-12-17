@@ -191,10 +191,20 @@
 
             <!-- GENDER -->
             <div class="mb-4">
-              <label class="form-label d-block">Gender</label>
-              <mat-slide-toggle class="me-3">Male</mat-slide-toggle>
-              <mat-slide-toggle class="me-3">Female</mat-slide-toggle>
-              <mat-slide-toggle>Other</mat-slide-toggle>
+              <mat-form-field appearance="outline" class="w-100">
+  <mat-label>Gender</mat-label>
+
+  <mat-select>
+    <mat-option value="" disabled selected>
+      Select your gender
+    </mat-option>
+
+    <mat-option value="male">Male</mat-option>
+    <mat-option value="female">Female</mat-option>
+    <mat-option value="other">Other</mat-option>
+  </mat-select>
+</mat-form-field>
+
             </div>
 
             <!-- ADDRESS -->
@@ -281,35 +291,6 @@
 
 
 
-<div class="container">
-  <div class="row">
-    <div class="col-4"></div>
 
-    <div class="col-4">
-      <form [formGroup]="registrationForm" (ngSubmit)="onSub()" >
-
-        <label>Name : </label>
-        <input type="text" formControlName="name" placeholder="Enter your name" class="ms-2 my-3"><br>
-
-        <div formArrayName="emails">
-            <label for="">Emails : </label>
-          <div *ngFor="let email of registrationForm.get('emails').controls; let i = index">
-            <input
-              type="email"
-              [formControlName]="i"
-              placeholder="Email {{ i + 1 }}">
-          </div>
-        </div>
-
-        <button type="submit">Submit</button>
-
-      </form>
-    </div>
-
-    <div class="col-4"></div>
-  </div>
-</div>
-
-<br><br><br><br><br><br>
 
 <app-dyanamic-form></app-dyanamic-form>
