@@ -11,27 +11,26 @@ import { FormReactChildComponent } from "../form-react-child/form-react-child.co
 })
 export class FormReactiveComponent {
 
-  result:any;
+  result: any[] = [];
   userForm: any;
 
   constructor(private fb: FormBuilder) {
 
     this.userForm = this.fb.group({
-    name: ['', Validators.required],
-    dob: ['', Validators.required],
-    mobile: ['',[Validators.required,Validators.pattern('^[0-9]{10}$')]],
-    email: ['', [Validators.required, Validators.email]],
-    address: ['', Validators.required],
-    loanType: ['', Validators.required],
-    loanAmount: ['', Validators.required],
-    loanPurpose: ['', Validators.required],
-    employer: ['', Validators.required],
-    jobTitle: ['', Validators.required],
-    income: ['', Validators.required],
-    signature: ['', Validators.required],
-    date: ['', Validators.required]
-
-
+      name: ['', Validators.required],
+      dob: ['', Validators.required],
+      mobile: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
+      email: ['', [Validators.required, Validators.email]],
+      address: ['', Validators.required],
+      loanType: ['', Validators.required],
+      loanAmount: ['', Validators.required],
+      loanPurpose: ['', Validators.required],
+      employer: ['', Validators.required],
+      jobTitle: ['', Validators.required],
+      income: ['', Validators.required],
+      signature: ['', Validators.required],
+      date: ['', Validators.required],
+      confirmation: [false, Validators.requiredTrue]
     })
 
   }
@@ -43,9 +42,9 @@ export class FormReactiveComponent {
 
   onSubmit() {
     if (this.userForm.valid) {
-      this.result = this.userForm.value;
+      this.result.push(this.userForm.value);
       console.log(this.result);
-
     }
   }
 }
+
