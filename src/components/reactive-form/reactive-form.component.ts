@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, RequiredValidator, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-reactive-form',
@@ -10,7 +11,7 @@ import { FormBuilder, ReactiveFormsModule, RequiredValidator, Validators } from 
 export class ReactiveFormComponent {
   userForm: any;
 
-  constructor(private _formBuilder: FormBuilder) {
+  constructor(private _formBuilder: FormBuilder, private router:Router) {
 
     this.userForm = this._formBuilder.group({
       email: ['', [Validators.required, Validators.email]],
@@ -21,6 +22,9 @@ export class ReactiveFormComponent {
   onSubmit() {
     if(this.userForm.valid) {
       console.log(this.userForm.value);
+      this.router.navigate(['/serviceComp'],{
+        queryParams : { isValidData : true}
+      });
     }
   }
 
