@@ -4,12 +4,13 @@ import { CommonModule } from '@angular/common';
 import { ProductService } from '../../services/product.service';
 import { ChildComponent } from "../child/child.component";
 import { Subscription } from 'rxjs';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-service',
   imports: [CommonModule, ChildComponent],
   templateUrl: './service.component.html',
-  styleUrl: './service.component.css'
+  styleUrl: './service.component.css',
 })
 export class ServiceComponent {
 
@@ -17,16 +18,22 @@ export class ServiceComponent {
   productList: any;
   num = 100;
   imageList: any;
-  subscription!: Subscription;
+  // subscription!: Subscription;
 
-  constructor(private _authService: AuthService, private _getProduct: ProductService) { }
+  constructor(private _authService: AuthService, private _getProduct: ProductService, private activatedRoute: ActivatedRoute) { }
 
 
 
-  ngOnInit() {
-    this.subscription.add(this._authService.getUserList().subscribe((res) => {
-      console.log(res);
-    }));
+   ngOnInit() {
+    this.activatedRoute.queryParams.subscribe((param) => {
+      if(param['isValidData'] == 'true') {
+        this._authService.getUserList().subscribe((res) => {
+          console.log(res);
+        });
+      }
+    });
+  
+    
 
     {
       this._getProduct.getImage().subscribe((data: any) => {
@@ -35,8 +42,8 @@ export class ServiceComponent {
     }
 
 
-    const service = this._authService.addition(10, 20);
-    console.log(service);
+    // const service = this._authService.addition(10, 20);
+    // console.log(service);
 
     {
       this._getProduct.getProductList().subscribe((res: any) => {
@@ -57,11 +64,13 @@ export class ServiceComponent {
     this.productData = this._authService.getProductData()
     console.log(this.productData);
 
+
   }
+ 
 
   ngOnDestroy() {
     this.num = 0;
-    this.subscription.unsubscribe();
+    // this.subscription.unsubscribe();
   }
 }
 function getProduct() {

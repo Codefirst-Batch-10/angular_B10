@@ -60,4 +60,6 @@ export const routes: Routes = [
         path: 'childRform',
         loadComponent: () => import('../components/form-react-child/form-react-child.component').then(m => m.FormReactChildComponent)
     },
+    // { path:'serviceComp', loadComponent:()=> import('../components/service/service.component').then(m=>m.ServiceComponent)},
+
 ];
