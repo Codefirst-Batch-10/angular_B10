@@ -10,6 +10,10 @@ import { FormReactiveComponent } from '../components/form-reactive/form-reactive
 
 export const routes: Routes = [
     {
+        path:'home',
+        loadChildren:()=>import('../module/home/home.module').then(m=>m.HomeModule)
+    },
+    {
         path: 'service',
         loadComponent: () => import('../components/service/service.component').then(m => m.ServiceComponent)
     },

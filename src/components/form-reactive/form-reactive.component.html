@@ -187,7 +187,7 @@
 
             <!-- Submit -->
             <button type="submit" class="btn btn-primary mt-3" [disabled]="userForm.invalid">
-                Submit Application
+                {{isEditMode? 'Update Form':'Submit Form'}}
             </button>
 
 
@@ -196,53 +196,79 @@
 </div><br><br>
 
 
-<app-form-react-child [sendReactData]="result"></app-form-react-child>
+
+<div class="mb-3" *ngIf="showActions">
+    <button class="btn btn-success me-2" (click)="onEdit()">
+        Edit
+    </button>
+
+    <button class="btn btn-danger" (click)="onDelete()">
+        Delete
+    </button>
+</div>
 
 
-<!-- <div class="table-responsive mt-4" *ngIf="result.length > 0">
-  <table class="table table-bordered table-hover table-striped align-middle shadow-sm">
+<div class="table-responsive mt-4" *ngIf="result.length > 0">
+    <table class="table table-bordered table-hover table-striped align-middle shadow-sm">
 
-    <thead class="table-primary text-center">
-      <tr>
-        <th>#</th>
-        <th>Name</th>
-        <th>Email</th>
-        <th>Mobile</th>
-        <th>Address</th>
-        <th>DOB</th>
-        <th>Date</th>
-        <th>Employer</th>
-        <th>Job Title</th>
-        <th>Income</th>
-        <th>Loan Type</th>
-        <th>Loan Purpose</th>
-        <th>Loan Amount</th>
-        <th>Signature</th>
-      </tr>
-    </thead>
+        <thead class="table-primary text-center">
+            <tr>
+                <th>
+                    <input type="checkbox" (change)="toggleAll($event)" />
+                </th>
+                <th>Sr.No</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Mobile</th>
+                <th>Address</th>
+                <th>DOB</th>
+                <th>Date</th>
+                <th>Employer</th>
+                <th>Job Title</th>
+                <th>Income</th>
+                <th>Loan Type</th>
+                <th>Loan Purpose</th>
+                <th>Loan Amount</th>
+                <th>Signature</th>
+            </tr>
+        </thead>
 
-    <tbody>
-      <tr *ngFor="let data of result; let i = index">
-        <td class="fw-bold text-center">{{ i + 1 }}</td>
-        <td>{{ data.name }}</td>
-        <td>{{ data.email }}</td>
-        <td>{{ data.mobile }}</td>
-        <td>{{ data.address }}</td>
-        <td>{{ data.dob }}</td>
-        <td>{{ data.date }}</td>
-        <td>{{ data.employer }}</td>
-        <td>{{ data.jobTitle }}</td>
-        <td class="text-end">{{ data.income | currency:'INR' }}</td>
-        <td>
-          <span class="badge bg-info text-dark">{{ data.loanType }}</span>
-        </td>
-        <td>{{ data.loanPurpose }}</td>
-        <td class="text-end fw-semibold">
-          {{ data.loanAmount | currency:'INR' }}
-        </td>
-        <td>{{ data.signature }}</td>
-      </tr>
-    </tbody>
+        <tbody>
+            <tr *ngFor="let data of result; let i = index">
+                <td class="text-center">
+                    <input type="checkbox" [(ngModel)]="data.selected" (change)="onRowSelect()" />
+                </td>
 
-  </table>
-</div> -->
+                <td class="fw-bold text-center">{{ i + 1 }}</td>
+                <td>{{ data.name }}</td>
+                <td>{{ data.email }}</td>
+                <td>{{ data.mobile }}</td>
+                <td>{{ data.address }}</td>
+                <td>{{ data.dob }}</td>
+                <td>{{ data.date }}</td>
+                <td>{{ data.employer }}</td>
+                <td>{{ data.jobTitle }}</td>
+                <td class="text-end">{{ data.income | currency:'INR' }}</td>
+                <td>
+                    <span class="badge bg-info text-dark">{{ data.loanType }}</span>
+                </td>
+                <td>{{ data.loanPurpose }}</td>
+                <td class="text-end fw-semibold">
+                    {{ data.loanAmount | currency:'INR' }}
+                </td>
+                <td>{{ data.signature }}</td>
+            </tr>
+        </tbody>
+
+    </table>
+</div>
+
+
+<!-- <footer>
+  <h4 class="text-center my-5">child component of reactive form ends here</h4>
+</footer> -->
+
+
+
+
+<!-- <app-form-react-child [result]="result"></app-form-react-child> -->
